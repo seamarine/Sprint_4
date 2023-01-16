@@ -15,20 +15,9 @@ public class MainPage {
     // Главная страница
     public static final String URL = "https://qa-scooter.praktikum-services.ru/";
 
-    // Открыть ссылку
-    public MainPage open() {
-        driver.get(URL);
-        return this;
-    }
 
     // Кнопка Принять куки
     private final By buttonAcceptCookie = By.id("rcc-confirm-button");
-
-    // Кнопка Заказать сверху
-    private final By buttonOrderInHeader = By.xpath("//button[@class='Button_Button__ra12g']");
-
-    // Кнопка Заказать снизу
-    private final By orderButtonDown = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     //Кнопки с вопросами (аккордеон)
     public static String questionAccordionButton = "accordion__heading-%s";
@@ -38,6 +27,12 @@ public class MainPage {
 
     // Окно с подтверждением заказа
     private final By finalOrder = By.className("Order_ModalHeader__3FDaJ");
+
+    // Открыть ссылку
+    public MainPage open() {
+        driver.get(URL);
+        return this;
+    }
 
     // Кликнуть Принять куки
     public MainPage acceptCookie() {
@@ -73,17 +68,4 @@ public class MainPage {
         return driver.findElement(accordionText(number)).getText();
     }
 
-    private final By orderButton_1 = By.className("Button_Button__ra12g");
-
-    // Кликнуть Принять куки
-    public OrderDetails clickOrderButton() {
-        driver.findElement(orderButton_1).click();
-        return new OrderDetails(driver);
-    }
-
-    // Кликнуть Принять куки
-    public OrderDetails clickOrderTopButton() {
-        driver.findElement(buttonOrderInHeader).click();
-        return new OrderDetails(driver);
-    }
 }

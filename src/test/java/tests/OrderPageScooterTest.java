@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import pageObject.OrderDetails;
 
 @RunWith(Parameterized.class)
 public class OrderPageScooterTest extends BaseUITest {
@@ -32,13 +33,10 @@ public class OrderPageScooterTest extends BaseUITest {
     @Test
     public void orderScooter() {
 
-        boolean isInputDataBlockDisplayed = new MainPage(driver)
-                .open()
-                .clickOrderTopButton()
+        boolean isInputDataBlockDisplayed = new OrderDetails(driver)
                 .fillOrderDetails(orderData)
                 .isOrderTrue();
         Assert.assertTrue("Заказ не был оформлен", isInputDataBlockDisplayed);
-
 
     }
 }

@@ -4,6 +4,7 @@ import model.Order;
 import org.openqa.selenium.*;
 
 public class OrderDetails {
+
     private final WebDriver driver;
     public OrderDetails(WebDriver driver) {
         this.driver = driver;
@@ -58,6 +59,7 @@ public class OrderDetails {
     // Заказ успешно оформлен
     private final By finalOrder = By.xpath("//div[@class='Order_Text__2broi']");
 
+
     public OrderDetails fillOrderDetails(Order order) {
         choiceButton(order.getButton());
         fillFieldName(order.getName());
@@ -75,14 +77,14 @@ public class OrderDetails {
         return this;
     }
 
+
     private OrderDetails finalOrderText() {
         driver.findElement(finalOrder).getText();
         return this;
     }
 
     private OrderDetails choiceButton(String button) {
-        if (button.equals("Нижняя кнопка")) {
-            // (button.equals("Нижняя кнопка"))
+        if (button.equals("Верхняя кнопка")) {
             driver.findElement(buttonOrderInHeader).click();
         }
         if (button.equals("Нижняя кнопка")) {
